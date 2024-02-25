@@ -124,7 +124,7 @@ STATIC_URL = '/static/'
 #added maunally
 STATICFILES_DIRS = [
     BASE_DIR / "videoconference_app/static",
-    "videoconference_app/static/",
+    
 
     
 ]

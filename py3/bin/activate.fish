@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/shashwat/PROJECTS/VideoConference-app/VideoConference_Django_and_ZegoCloud/py3"
+set -gx VIRTUAL_ENV "/home/shashwat/PROJECTS/VideoConference-app/MyVideoConference/py3"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

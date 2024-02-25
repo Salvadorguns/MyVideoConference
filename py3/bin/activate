@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/shashwat/PROJECTS/VideoConference-app/VideoConference_Django_and_ZegoCloud/py3"
+VIRTUAL_ENV="/home/shashwat/PROJECTS/VideoConference-app/MyVideoConference/py3"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

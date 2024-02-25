@@ -9,8 +9,9 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-import dj_database_url
+import dj_database_url  
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-6fdgh7tki&^y_-cl4%tpyl-$kh9($vos&a5q&uq%!az2gs__bz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','sampledomain.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -76,10 +77,7 @@ WSGI_APPLICATION = 'videoconferencing.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
 
 DATABASES['default'] = dj_database_url.parse("postgres://django_render_xcr4_user:mmLMxTVmPKgLHsPpsE0c3QJAatEK6Q6Y@dpg-cnb2t7ud3nmc73dosve0-a.oregon-postgres.render.com/django_render_xcr4")

@@ -85,23 +85,23 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'videoconferencing.wsgi.application'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-# }
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+}
 
-# DATABASES['default'] = dj_database_url.parse("postgres://django_render_xcr4_user:mmLMxTVmPKgLHsPpsE0c3QJAatEK6Q6Y@dpg-cnb2t7ud3nmc73dosve0-a.oregon-postgres.render.com/django_render_xcr4")
+DATABASES['default'] = dj_database_url.parse("postgres://django_render_xcr4_user:mmLMxTVmPKgLHsPpsE0c3QJAatEK6Q6Y@dpg-cnb2t7ud3nmc73dosve0-a.oregon-postgres.render.com/django_render_xcr4")
 
-#postgres://django_render_xcr4_user:mmLMxTVmPKgLHsPpsE0c3QJAatEK6Q6Y@dpg-cnb2t7ud3nmc73dosve0-a.oregon-postgres.render.com/django_render_xcr4
+# postgres://django_render_xcr4_user:mmLMxTVmPKgLHsPpsE0c3QJAatEK6Q6Y@dpg-cnb2t7ud3nmc73dosve0-a.oregon-postgres.render.com/django_render_xcr4
 
 
 

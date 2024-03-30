@@ -10,12 +10,19 @@
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
   <body>
     <div class="dashboard">
-        <h1>Welcome, {{name}}!</h1>
-        <!-- create a "New Meeting" button -->
-        <a href="{% url 'meeting' %}" class="button">New Meeting</a>
-        <a href="{% url 'join_room' %}" class="button">Join Meeting</a>
-        <a href="{% url 'logout' %}" class="button">Logout</a>
+      <h1>Welcome, {{name}}!</h1>
+      <!-- create a "New Meeting" button -->
+      <a href="{% url 'meeting' %}" class="button">New Meeting</a>
+      <a href="{% url 'join_room' %}" class="button">Join Meeting</a>
+      <a href="{% url 'logout' %}" class="button">Logout</a>
     </div>
+
+    <script>
+      // Add a popup for successful authentication and reaching the page
+      window.onload = function() {
+        alert("Authentication successful! You have reached the dashboard page.");
+      };
+    </script>
   </body>
 </head>
 </html>

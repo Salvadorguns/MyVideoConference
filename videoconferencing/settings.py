@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import dj_database_url  
 from pathlib import Path
 import os
+import django
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,6 +31,7 @@ ALLOWED_HOSTS = ['*']
 
 
 # Application definition
+SITE_ID=2
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -39,7 +41,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'videoconference_app',
+    "django.contrib.sites",
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 ]
+
+SOCIALACCOUNT_PROVIDERS = {
+    "google": {
+        "SCOPE": ["profile", "email"],
+        "AUTH_PARAMS": {"access_type": "online"},
+    }}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -72,15 +85,21 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'videoconferencing.wsgi.application'
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-}
+# DATABASES = {
+#     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+# }
 
-DATABASES['default'] = dj_database_url.parse("postgres://django_render_xcr4_user:mmLMxTVmPKgLHsPpsE0c3QJAatEK6Q6Y@dpg-cnb2t7ud3nmc73dosve0-a.oregon-postgres.render.com/django_render_xcr4")
+# DATABASES['default'] = dj_database_url.parse("postgres://django_render_xcr4_user:mmLMxTVmPKgLHsPpsE0c3QJAatEK6Q6Y@dpg-cnb2t7ud3nmc73dosve0-a.oregon-postgres.render.com/django_render_xcr4")
 
 #postgres://django_render_xcr4_user:mmLMxTVmPKgLHsPpsE0c3QJAatEK6Q6Y@dpg-cnb2t7ud3nmc73dosve0-a.oregon-postgres.render.com/django_render_xcr4
 
@@ -142,3 +161,11 @@ if not DEBUG:
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",)
+
+LOGIN_DIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "/"

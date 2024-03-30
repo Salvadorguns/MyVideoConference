@@ -89,6 +89,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+        "TEST": {
+            "NAME": BASE_DIR / "db.sqlite3",
+        },
     }
 }
 
@@ -97,7 +100,7 @@ DATABASES = {
 
 # DATABASES = {
 #     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-# }
+# }   
 
 # DATABASES['default'] = dj_database_url.parse("postgres://django_render_xcr4_user:mmLMxTVmPKgLHsPpsE0c3QJAatEK6Q6Y@dpg-cnb2t7ud3nmc73dosve0-a.oregon-postgres.render.com/django_render_xcr4")
 

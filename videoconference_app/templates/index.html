@@ -8,7 +8,55 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Video Conference</title>
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" media="screen and (max-width: 600px)" href="{% static 'css/mobile.css' %}">
+  <style>
+    .intro {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .intro h1 {
+      font-size: 24px;
+    }
+
+    .intro h2 {
+      font-size: 18px;
+    }
+
+    .button {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    /* Media query for PC */
+    @media screen and (min-width: 601px) {
+      .intro h1 {
+        font-size: 32px;
+      }
+
+      .intro h2 {
+        font-size: 24px;
+      }
+    }
+
+    /* Media query for phone */
+    @media screen and (max-width: 600px) {
+      .intro h1 {
+        font-size: 20px;
+      }
+
+      .intro h2 {
+        font-size: 16px;
+      }
+    }
+  </style>
   <body>
+
     <div class="intro">
         <h1>Welcome to my Awesome Video Conferencing App!</h1>
         <h2>For all your professional and personal needs!</h2>
